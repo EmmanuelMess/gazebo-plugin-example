@@ -1,3 +1,4 @@
+# WARNING The major version of this lib depends on gazebo version (see Dockerfile)
 find_package(gz-sensors8 REQUIRED)
 set(GZ_SENSORS_VER ${gz-sensors8_VERSION_MAJOR})
 

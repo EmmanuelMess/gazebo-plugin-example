@@ -1,3 +1,5 @@
+# WARNING if you update the gazebo version, you need to update all linked libraries, checking compatibility between
+# major versions
 FROM ghcr.io/sloretz/ros:jazzy-simulation
 
 ENV HOME="/root"
@@ -16,6 +18,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list
 RUN wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+
+# WARNING The major version of these libs depends on gazebo version (see comment on top of file)
 RUN apt-get update && apt-get install -y \
     libgz-cmake4-dev \
     libgz-sensors8-dev  \
